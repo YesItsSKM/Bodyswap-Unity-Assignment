@@ -9,7 +9,7 @@ public class CubePileGenerator : MonoBehaviour
     public Transform parentTransform;                 // Reference to the parent transform for the pyramid
     public RandomColourGenerator colorGenerator;      // Reference to the script for generating random colors
 
-    public float massOfCubes = 1f;                    // Mass of individual cubes
+    public float massOfCubes = 0.25f;                    // Mass of individual cubes
     float spaceBetweenLayers = 1f;                     // Spacing between layers
 
     void Start()
