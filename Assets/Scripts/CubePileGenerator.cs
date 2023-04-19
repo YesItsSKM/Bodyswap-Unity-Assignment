@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class CubePileGenerator : MonoBehaviour
 {
-    public GameObject cubePrefab;                    // Reference to the cube prefab to be instantiated
-    public int pyramidSize = 5;                      // Number of layers in the pyramid
+    public GameObject cubePrefab;                     // Reference to the cube prefab to be instantiated
+    public int pyramidSize = 5;                       // Number of layers in the pyramid
     
-    public float cubeSize;                           // Size of each cube
+    public float cubeSize;                            // Size of each cube
     public Transform parentTransform;                 // Reference to the parent transform for the pyramid
     public RandomColourGenerator colorGenerator;      // Reference to the script for generating random colors
 
-    public float massOfCubes = 0.25f;                    // Mass of individual cubes
+    public float massOfCubes = 0.25f;                 // Mass of individual cubes
     float spaceBetweenLayers = 1f;                     // Spacing between layers
 
     void Start()
@@ -48,10 +48,10 @@ public class CubePileGenerator : MonoBehaviour
                     cube.transform.localScale = Vector3.one * cubeSize;
 
                     // Set the color of the cube using the random color generator
-                    cube.GetComponent<Renderer>().material.color = colorGenerator.GenerateRandomColor();
+                    cube.GetComponent<Renderer>().material.color = colorGenerator.GenerateRandomColour();
 
                     // Add a rigidbody component to enable physics
-                    Rigidbody rb = cube.AddComponent<Rigidbody>();
+                    Rigidbody rb = cube.GetComponent<Rigidbody>();
 
                     // Set the mass and drag of the rigidbody
                     rb.mass = massOfCubes;

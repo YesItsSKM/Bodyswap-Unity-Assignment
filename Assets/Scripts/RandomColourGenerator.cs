@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class RandomColourGenerator : MonoBehaviour
 {
-    public Color GenerateRandomColor()
+    // Return a random colour
+    public Color GenerateRandomColour()
     {
         return new Color(
             Random.value,

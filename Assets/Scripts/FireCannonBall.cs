@@ -16,7 +16,7 @@ public class FireCannonBall : MonoBehaviour
 
     public void Start()
     {
-        numberOfCannonBallsLeftText.text = "Cannon Balls Left - " + numberOfCannonBalls.ToString();
+        numberOfCannonBallsLeftText.text = "Cannon Balls Left : " + numberOfCannonBalls.ToString();
     }
 
     public void LaunchCannonball()
@@ -32,21 +32,18 @@ public class FireCannonBall : MonoBehaviour
             // Set its rotation to match the rotation of the cannon transform
             cannonball.transform.rotation = cannonBallEjectionTransform.rotation;
 
-            // Add a rigidbody component to enable physics
-            Rigidbody rb = cannonball.AddComponent<Rigidbody>();
-
-            // Set the mass and drag of the rigidbody
-            rb.mass = 10f;
-            rb.drag = 0.5f;
+            // Get the rigidbody component of the ball
+            Rigidbody rb = cannonball.GetComponent<Rigidbody>();
 
             // Apply a force to the cannonball in the direction of the cannon's forward vector
             rb.AddForce(cannonBallEjectionTransform.forward * cannonballSpeed, ForceMode.VelocityChange);
 
+            // Decrease the number of cannon balls left and update it on the screen
             numberOfCannonBalls--;
-
-            numberOfCannonBallsLeftText.text = "Cannon Balls Left - " + numberOfCannonBalls.ToString();
+            numberOfCannonBallsLeftText.text = "Cannon Balls Left : " + numberOfCannonBalls.ToString();
         }
 
+        // If no cannon ball is left, disable the fire button
         if (numberOfCannonBalls == 0)
         {
             fireButton.interactable = false;
